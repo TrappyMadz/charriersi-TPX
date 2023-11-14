@@ -53,22 +53,24 @@ clean:
 	rm -f $(REP_EXE)/*.o $(CHE_EXE) $(REP_SRC)/$(SUPPR)
 
 
-# Cible doc
-# On génére la documentation
-doc: 
-	doxygen $(REP_DOC)/$(DOXYFILE)
+# Cible pour créer le fichier Doxyfile
+$(REP_DOC)/Doxyfile:
+	doxygen -g $@
+	sed -i 's#OUTPUT_DIRECTORY.*=.*#OUTPUT_DIRECTORY       = $(REP_DOC)#' $@
 
-# Cible dox
-# On génère le fichier de configuration doxygene
-dox:
-	doxygen -g
+# Cible pour générer la documentations
+doc: $(REP_DOC)/Doxyfile
+	doxygen $<
+
+# Cible pour générer seulement le fichier Doxyfile
+cdoc: $(REP_DOC)/Doxyfile
 
 # Cible exe
 exe:
-	./charriersi-tp$(NUM_TP).out
+	./$(CHE_EXE)
 
 # Cible dir
 dir:
 	mkdir bin doc src
 
-.PHONY: all clean doc exe dox dir
+.PHONY: all clean doc exe cdoc dir
