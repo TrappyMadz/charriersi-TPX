@@ -9,11 +9,11 @@ Pour compiler le code, il faut ouvrir un terminal dans le dossier "charriersi-tp
 make
 ```
 
-Deux fichiers seront créés dans le répertoire bin: charriersi-tp7.out et main.o
+Les fichiers .o et les executables se trouveront dans le dossier bin
 
 ## Execution du programme
 
-Pour executer le programme, toujours dans le terminal se trouvant dans le dossier "charriersi-tp7a", il faut entrer la commande :
+Pour executer le programme, toujours dans le terminal se trouvant dans le dossier "charriersi-tpX", il faut entrer la commande :
 
 ```bash
 make exe

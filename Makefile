@@ -3,7 +3,7 @@
 # Définition des variables :
 
 # Numéro du tp, utile pour les noms de certains fichiers
-NUM_TP := 7
+NUM_TP := X
 
 # Répertoires
 REP_SRC := src
@@ -26,7 +26,7 @@ EXE := charriersi-tp$(NUM_TP).out
 CHE_EXE := $(REP_EXE)/$(EXE)
 
 #Liste des extensions de fichiers à supprimer avec clean dans le répertoire source
-SUPPR := *~ .old .bak \#*\# *.d
+SUPPR := *~ .out .old .bak \#*\#
 
 #Doxyfile
 DOXYFILE := Doxyfile
@@ -35,8 +35,6 @@ DOXYFILE := Doxyfile
 
 # Cible all
 all: $(CHE_EXE)
-	rm -f $(REP_EXE)/*.o $(CHE_EXE) $(REP_SRC)/$(SUPPR)
-
 
 # Règle de compilation
 $(CHE_EXE): $(OBJ)
