@@ -12,7 +12,7 @@ REP_DOC := doc
 
 # Compilation
 CC := gcc
-COPTION := -Wall -lm
+COPTION := -Wall -g -fsanitize=adress
 
 # Liste des fichiers sources
 SRC := $(wildcard $(REP_SRC)/*.c)
@@ -38,11 +38,11 @@ all: $(CHE_EXE)
 
 # Règle de compilation
 $(CHE_EXE): $(OBJ)
-	$(CC) $(COPTION) $^ -o $@
+	$(CC) $(COPTION) $^ -o $@ -lm
 
 # Règle pour les fichiers objets
 $(REP_EXE)/%.o: $(REP_SRC)/%.c
-	$(CC) $(COPTION) -c $< -o $@
+	$(CC) $(COPTION) -c $< -o $@ -lm
 
 
 
